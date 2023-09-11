@@ -1,0 +1,202 @@
+#body {
+    font-family: "League Spartan", sans-serif;
+    color: white;
+    display: flex;
+    width: 40vw;
+    flex-direction: row;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  
+  @media (max-width: 1500px) {
+    #body {
+      width: 60vw;
+      margin-top: 2.5rem;
+      margin-bottom: 4rem;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    #body {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #body {
+      width: 90vw;
+    }
+  }
+  
+  #drinkTitle {
+    font-size: 2vw;
+    margin-top: 1.75rem;
+    animation: pulse 2s ease-in-out 1;
+  }
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  
+  /* .icon:hover::before {
+    content: "Add to favorites";
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: -10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  .icon:hover::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-bottom-color: #454444;
+  } */
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @media (max-width: 1500px) {
+    #drinkTitle {
+      font-size: 3vw;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    #drinkTitle {
+      text-align: center;
+      font-size: 6vw;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #drinkTitle {
+      font-size: 8vw;
+    }
+  }
+  
+  .img {
+    max-width: 100%;
+    height: 25vw;
+    width: 25vw;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(124, 123, 123, 0.2);
+    border: 5px solid rgba(198, 174, 212, 0.2);
+    margin-top: 15px;
+    margin-right: 25px;
+    background: linear-gradient(to right, #e44ca4, #8495ca);
+    background-size: 200% auto;
+    animation: gradient 8s ease infinite;
+  }
+  
+  .img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px #8495ca;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @media (max-width: 1910px) {
+    .img {
+      height: 36vw;
+      width: 36vw;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .img {
+      align-self: center;
+      height: 60vw;
+      width: 60vw;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .img {
+      height: 95vw;
+      width: 95vw;
+      margin-right: 0px;
+    }
+  }
+  
+  #ingredientsTitle {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    text-decoration: underline;
+    text-decoration-color: #d793bb;
+  }
+  
+  @media (max-width: 600px) {
+    #ingredientsTitle {
+      font-size: 6vw;
+    }
+  }
+  
+  #ingredient {
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  #measurements {
+    color: #e4a5ca;
+  }
+  
+  #directionsTitle {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    text-decoration: underline;
+    text-decoration-color: #be709e;
+  }
+  
+  @media (max-width: 600px) {
+    #directionsTitle {
+      font-size: 6vw;
+    }
+  }
+  
+  #drinkDescription {
+    line-height: 23px;
+    max-width: 500px;
+    padding: 20px;
+  }
+  
