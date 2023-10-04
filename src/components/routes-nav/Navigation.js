@@ -14,6 +14,7 @@ function Navigation(props) {
               About Us
             </Link>
           </li>
+<<<<<<< HEAD
           <li className={styles.navItem}>
             <Link href="/list/categories">
               Browse Categories
@@ -24,6 +25,8 @@ function Navigation(props) {
               Ingredient List
             </Link>
           </li>
+=======
+>>>>>>> 587cb7f5955c6ddf527f669b4a1b5f2cb6986924
         </ul>
       </div>
     );
