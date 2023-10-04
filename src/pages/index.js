@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from "next/link";
 import { Inter } from '@next/font/google'
 import HomepageIntro from '@/components/HomepageIntro'
 import SearchForm from '@/components/SearchForm'
@@ -10,6 +11,7 @@ import Navigation from "@/components/routes-nav/Navigation";
 import searchCocktail from "./api/searchCocktail";
 import randomCocktail from "./api/randomCocktail";
 import Alert from "@/components/Alert";
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -78,6 +80,8 @@ export default function Home() {
       <main className={styles.container}>
         <Navigation handleSetAlertFalse={handleSetAlertFalse} />
         <HomepageIntro />
+        <Link href="/list/categories" className={styles.categoriesLink}>Browse Categories</Link>
+        <Link href="/list/ingredients" className={styles.ingredientsLink}>Browse Ingredients</Link>
         <SearchForm
           handleSubmit={handleSubmit}
           handleChange={handleChange}

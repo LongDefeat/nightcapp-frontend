@@ -1,0 +1,51 @@
+.categoriesContainer {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* space between cards */
+  min-height: 100vh;
+}
+
+.categorySection {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 275px; /* or any suitable width */
+  max-height: 400px; /* adjust as per your design */
+  overflow-y: auto; /* adds scroll if content is too long */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.categoryTitle {
+  font-size: 24px;
+  padding: 10px;
+  margin-bottom: 10px; /* space between title and items */
+  color: #6b6b6b;
+  text-align: center;
+  text-decoration: underline;
+  font-family: "Vibur", sans-serif;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
+  0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
+  animation: pulsate;
+}
+
+.categoryName {
+  color: #34495e;
+  padding-left: 8px;
+  margin: 10px 0;
+}
+
+.categoryName:hover {
+  color: #719bc5;
+  text-decoration: underline;
+}
+
+@keyframes pulsate {
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f09,
+      0 0 80px #f09, 0 0 90px #f09, 0 0 100px #f09, 0 0 150px #f09;
+  }
+  0% {
+    text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px #fff, 0 0 38px #f09,
+      0 0 73px #f09, 0 0 80px #f09, 0 0 94px #f09, 0 0 140px #f09;
+  }
+}

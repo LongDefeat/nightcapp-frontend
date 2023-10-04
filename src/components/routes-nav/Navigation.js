@@ -14,6 +14,16 @@ function Navigation(props) {
               About Us
             </Link>
           </li>
+          <li className={styles.navItem}>
+            <Link href="/list/categories">
+              Browse Categories
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href="/list/ingredients">
+              Ingredient List
+            </Link>
+          </li>
         </ul>
       </div>
     );
