@@ -21,7 +21,7 @@ async function searchCocktail(data) {
   try {
     const response = await axios({
       method: "get",
-      url: `http://localhost:3001/cocktaildb/search?recipe=${data}`,
+      url: `http://localhost:3001/search?recipe=${data}`,
     });
     const {
       drinks
