@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import styles from "../styles/Navigation.module.css";
 
 function Navigation(props) {

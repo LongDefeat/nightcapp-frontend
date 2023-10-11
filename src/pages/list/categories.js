@@ -1,57 +1,66 @@
 import Link from 'next/link';
 import styles from '@/styles/categories.module.css';
 import axios from 'axios';
-
+import PropTypes from 'prop-types';
 import Navigation from '@/components/routes-nav/Navigation';
 
-const CategorySection = ({ title, items, queryKey }) => (
-    <div className={styles.categorySection}>
+const CategorySection = ({ title, items }) => (
+  <div className={styles.categorySection}>
     <h1 className={styles.categoryTitle}>{title}</h1>
-    {items.map((item, index) => {
+    {items.map((item) => {
       const key = Object.keys(item)[0];
       return (
-        <div key={index} className={styles.categoryName}>
-          <Link href={`/list/${item[key]}/`}>{item[key]}</Link>
+        <div key={item[key]} className={styles.categoryName}>
+          <Link href={`/list/${item[key]}`}>{item[key]}</Link>
         </div>
       );
     })}
-    </div>
+  </div>
 );
 
-const Categories = ({ categories, glasses, ingredients, alcohol }) => {
+CategorySection.propTypes = {
+  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+const Categories = ({ categories }) => {
+  if (!categories) {
     return (
       <>
         <Navigation />
-        <div className={styles.categoriesContainer}>
-        <div className={styles.categorySection}>
-            <CategorySection title="Categories" items={categories} queryKey="category" />
-        </div>
-        <div className={styles.categorySection}>
-            <CategorySection title="Glasses" items={glasses} queryKey="glass" />
-        </div>
-        <div className={styles.categorySection}>
-            <CategorySection title="Ingredients" items={ingredients} queryKey="ingredient" />
-        </div>
-        <div className={styles.categorySection}>
-            <CategorySection title="Alcohol Types" items={alcohol} queryKey="alcohol" />
-        </div>
-        </div>
+        <p>Error loading categories, please try again.</p>
       </>
     );
-  };
+  }
+  return (
+    <>
+      <Navigation />
+      <div className={styles.categoriesContainer}>
+        <CategorySection title="Categories" items={categories} />
+      </div>
+    </>
+  );
+};
+
+Categories.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.object),
+};
 
 export async function getServerSideProps() {
-  const res = await axios.get('http://localhost:3001/all_filters');
-  const { categories, glasses, ingredients, alcohol } = res.data;
-
-  return {
-    props: {
-      categories,
-      glasses,
-      ingredients,
-      alcohol
-    }
-  };
+  try {
+    const res = await axios.get('http://localhost:3001/list/categories');
+    const { categories } = res.data;
+    console.log(res.data); // Fixed typo here
+    return {
+      props: {
+        categories,
+      },
+    };
+  } catch (error) {
+    console.error("API request error: ", error.message);
+    // Redirect to an error page or return empty props.
+    return { props: {} };
+  }
 }
 
 export default Categories;

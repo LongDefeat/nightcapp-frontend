@@ -1,51 +1,50 @@
-.categoriesContainer {
-  padding: 20px;
+.categoriesContainer { 
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* space between cards */
+  flex-direction: column;
   min-height: 100vh;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 50px; 
 }
 
 .categorySection {
   border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 275px; /* or any suitable width */
-  max-height: 400px; /* adjust as per your design */
-  overflow-y: auto; /* adds scroll if content is too long */
+  border-radius: 15px;
+  width: 500px;
+  max-height: 700px;
+  overflow-y: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #3232327e; /* White background for a clean look */
+  margin-bottom: 30px; /* Space between different category sections */
+}
+
+/* Scaling effect on hover for a modern interactive look */
+.categorySection:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .categoryTitle {
-  font-size: 24px;
-  padding: 10px;
-  margin-bottom: 10px; /* space between title and items */
-  color: #6b6b6b;
+  font-size: 30px; 
+  padding: 20px;
+  margin-bottom: 10px;
+  color: #f09;
   text-align: center;
-  text-decoration: underline;
-  font-family: "Vibur", sans-serif;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
-  0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
-  animation: pulsate;
+  font-family: "Arial", sans-serif;
 }
 
 .categoryName {
-  color: #34495e;
-  padding-left: 8px;
-  margin: 10px 0;
+  color: rgb(252, 66, 178); /* Subtle, dark text color */
+  padding: 12px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  border-radius: 10px; /* Rounded edges for the hover effect */
 }
 
 .categoryName:hover {
-  color: #719bc5;
-  text-decoration: underline;
-}
-
-@keyframes pulsate {
-  100% {
-    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f09,
-      0 0 80px #f09, 0 0 90px #f09, 0 0 100px #f09, 0 0 150px #f09;
-  }
-  0% {
-    text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px #fff, 0 0 38px #f09,
-      0 0 73px #f09, 0 0 80px #f09, 0 0 94px #f09, 0 0 140px #f09;
-  }
+  color: #fff; /* White text on hover for contrast */
+  background-color: #007bff; /* A calm, dark blue color for hover */
+  text-decoration: none; /* Removing the underline for a cleaner look */
 }

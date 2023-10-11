@@ -16,13 +16,14 @@ const CategoryDetail = ({ category, cocktails }) => {
     async function getServerSideProps(context) {
       const { category } = context.params;
       try {
-        const res = await axios.get(`http://localhost:3001/cocktails?category=${category}`);
-        const cocktails = res.data.drinks;
+        const res = await axios.get(`http://localhost:3001/list/categories?category=${category}`);
+        const cocktails = res.data.cocktails;
+
+        console.log(cocktails)
     
         return {
           props: {
             category,
-            drinks
           }
         };
       } catch (error) {
@@ -54,25 +55,25 @@ const CategoryDetail = ({ category, cocktails }) => {
   );
 };
 
-// export async function getServerSideProps(context) {
-//     const { category } = context.params;
-//     try {
-//       const res = await axios.get(`http://localhost:3001/cocktails?category=${category}`);
-//       const cocktails = res.data.drinks;
+export async function getServerSideProps(context) {
+    const { category } = context.params;
+    try {
+      const res = await axios.get(`http://localhost:3001/cocktails?category=${category}`);
+      const cocktails = res.data.drinks;
   
-//       return {
-//         props: {
-//           category,
-//           drinks
-//         }
-//       };
-//     } catch (error) {
-//       // Handle error accordingly
-//       console.error("Error fetching data:", error.message);
-//       return {
-//         notFound: true,
-//       };
-//     }
-//   }  
+      return {
+        props: {
+          category,
+          drinks
+        }
+      };
+    } catch (error) {
+      // Handle error accordingly
+      console.error("Error fetching data:", error.message);
+      return {
+        notFound: true,
+      };
+    }
+  }  
 
 export default CategoryDetail;

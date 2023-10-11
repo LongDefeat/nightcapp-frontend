@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import Head from 'next/head';
@@ -66,7 +66,6 @@ export default function Home() {
     <>
       <Head>
         <title> Nightcapp </title>{" "}
-        <link href="Home.module.css" rel="stylesheet" />
         <link
           href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap"
           rel="stylesheet"
@@ -75,13 +74,12 @@ export default function Home() {
           href="https://fonts.googleapis.com/css?family=Vibur:400"
           rel="stylesheet"
           type="text/css"
+          display='optional'
         ></link>{" "}
       </Head>{" "}
       <main className={styles.container}>
         <Navigation handleSetAlertFalse={handleSetAlertFalse} />
-        <HomepageIntro />
-        <Link href="/list/categories" className={styles.categoriesLink}>Browse Categories</Link>
-        <Link href="/list/ingredients" className={styles.ingredientsLink}>Browse Ingredients</Link>
+        <HomepageIntro />  
         <SearchForm
           handleSubmit={handleSubmit}
           handleChange={handleChange}

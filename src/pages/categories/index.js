@@ -19,41 +19,17 @@ const Categories = ({ categories, glasses, ingredients, alcohol }) => {
           <Link href={`/search?category=${category.strCategory}`}>{category.strCategory}</Link>
         </div>
       ))}
-
-      <h1 className={styles.categoryTitle}>Glasses</h1>
-      {glasses.map((glass, index) => (
-        <div key={index}>
-          <Link href={`/search?glass=${glass.strGlass}`}>{glass.strGlass}</Link>
-        </div>
-      ))}
-
-      <h1 className={styles.categoryTitle}>Ingredients</h1>
-      {ingredients.map((ingredient, index) => (
-        <div key={index}>
-          <Link href={`/search?ingredient=${ingredient.strIngredient1}`}>{ingredient.strIngredient1}</Link>
-        </div>
-      ))}
-
-      <h1 className={styles.categoryTitle}>Alcohol Types</h1>
-      {alcohol.map((alc, index) => (
-        <div key={index}>
-          <Link href={`/search?alcohol=${alc.strAlcoholic}`}>{alc.strAlcoholic}</Link>
-        </div>
-      ))}
     </div>
   );
 };
 
 export async function getServerSideProps() {
-  const res = await axios.get('http://localhost:3001/all_filters');
-  const { categories, glasses, ingredients, alcohol } = res.data;
+  const res = await axios.get('http://localhost:3001/list/categories');
+  const { categories} = res.data;
 
   return {
     props: {
-      categories,
-      glasses,
-      ingredients,
-      alcohol
+      categories
     }
   };
 }
