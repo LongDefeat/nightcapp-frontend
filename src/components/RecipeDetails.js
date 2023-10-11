@@ -1,7 +1,9 @@
 import styles from "./styles/RecipeDetails.module.css";
+import { useRouter } from 'next/router';
 import { BiDrink } from "react-icons/bi";
+import axios from "axios";
 
-export default function RecipeDetails(props) {
+function RecipeDetails(props) {
   return (
     <>
       <div id={styles.body}>
@@ -32,3 +34,25 @@ export default function RecipeDetails(props) {
     </>
   );
 }
+
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  
+  try {
+    const res = await axios.get(`http://localhost:3001/cocktails/${id}`);
+    const cocktail = res.data.cocktail;
+
+    return {
+      props: {
+        cocktail,
+      }
+    };
+  } catch (error) {
+    console.error("Error fetching cocktail data:", error.message);
+    return {
+      notFound: true,
+    };
+  }
+}
+
+export default RecipeDetails;

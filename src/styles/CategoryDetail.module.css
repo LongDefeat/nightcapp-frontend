@@ -1,12 +1,30 @@
+/* CategoryDetail.module.css */
+
+.categoryDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.categoryDetail h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
 .cardsContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+
+.recipeCard {
+    transition: transform 0.3s ease-in-out;
 }
 
 .recipeCard:hover {
     transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
 }
 
 @media (max-width: 1200px) {
