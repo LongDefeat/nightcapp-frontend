@@ -8,11 +8,11 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap"
           rel="stylesheet"
         />
-        <link
+      <link
           href="https://fonts.googleapis.com/css?family=Vibur:400"
           rel="stylesheet"
           type="text/css"
-        ></link>{" "}
+      ></link>{" "}
       </Head>
       <body>
         <Main />

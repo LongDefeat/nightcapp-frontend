@@ -7,9 +7,6 @@ const Categories = ({ categories, glasses, ingredients, alcohol }) => {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // useEffect(() => {
-  //   async function 
-  // })
 
   return (
     <div>

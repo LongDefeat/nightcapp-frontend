@@ -17,6 +17,7 @@ const CategoryDetail = ({ category, cocktails }) => {
       <Navigation/>
       <div className={styles.categoryDetail}>
         <h1>{category}</h1>
+        
         <div className={styles.cardsContainer}>
           {cocktails.map((cocktail) => (
            <RecipeCard 
